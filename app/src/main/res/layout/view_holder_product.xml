@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_marginRight="@dimen/margin_xlarge"
+    android:layout_marginLeft="@dimen/margin_xlarge"
+    >
+
+        <TextView
+            android:id="@+id/tv_items_count"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:text="187"
+            android:layout_centerHorizontal="true"
+            />
+
+        <ImageView
+            android:id="@+id/iv_product_img"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/product_img_height"
+            tools:src="@drawable/img_shoe"
+            android:scaleType="centerCrop"
+            android:layout_marginTop="@dimen/margin_xlarge"
+            />
+
+        <TextView
+            android:id="@+id/tv_product_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:text="POINTED FLAT MULES"
+            android:layout_centerInParent="true"
+            android:layout_below="@+id/iv_product_img"
+            android:layout_marginTop="@dimen/margin_medium"
+            />
+
+    </RelativeLayout>
+
