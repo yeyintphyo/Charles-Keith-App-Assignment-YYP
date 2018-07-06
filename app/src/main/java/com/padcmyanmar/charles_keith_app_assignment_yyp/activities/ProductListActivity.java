@@ -28,10 +28,13 @@ import org.greenrobot.eventbus.ThreadMode;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import butterknife.OnClick;
 
 public class ProductListActivity extends BaseActivity implements ProductsDelegate {
 
     private ProductsAdapter mProductsAdapter;
+
+    private GridLayoutManager mGridLayoutManager;
 
     @BindView(R.id.toolbar)
     Toolbar toolbar;
@@ -87,8 +90,8 @@ public class ProductListActivity extends BaseActivity implements ProductsDelegat
 
         rvProducts.setAdapter(mProductsAdapter);
         //rvProducts.setLayoutManager(new LinearLayoutManager(getApplicationContext(), LinearLayoutManager.VERTICAL, false));
-        GridLayoutManager gridLayoutManager = new GridLayoutManager( getApplicationContext(), 2 );
-        rvProducts.setLayoutManager(gridLayoutManager);
+        mGridLayoutManager = new GridLayoutManager( getApplicationContext(), 2 );
+        rvProducts.setLayoutManager(mGridLayoutManager);
 
         ProductsModel.getObjInstance().loadNewProducts();
 
@@ -133,11 +136,22 @@ public class ProductListActivity extends BaseActivity implements ProductsDelegat
 
     }
 
+    @OnClick({R.id.btn_single_column, R.id.btn_double_column})
+    public void clickViewColumn(View view) {
+        if(view.getId() == R.id.btn_single_column) {
+            mGridLayoutManager.setSpanCount(1);
+        } else if (view.getId() == R.id.btn_double_column) {
+            mGridLayoutManager.setSpanCount(2);
+        }
+
+    }
+
     @Subscribe(threadMode = ThreadMode.MAIN)
     public void onSuccessGetNewProducts(SuccessGetNewProductsEvent event){
         Log.d("onSuccessGetNewProducts", "onSuccessGetNewProducts" + event.getProductList());
         mProductsAdapter.setmNewProductList(event.getProductList());
         swipeRefreshLayout.setRefreshing(false);
+        evpEmpty.setVisibility(View.GONE);
     }
 
     @Subscribe(threadMode = ThreadMode.MAIN)
@@ -145,6 +159,7 @@ public class ProductListActivity extends BaseActivity implements ProductsDelegat
         Log.d("onSuccessForceRefresh", "onSuccessForceRefresh" + event.getProductList());
         mProductsAdapter.setmNewProductList(event.getProductList());
         swipeRefreshLayout.setRefreshing(false);
+        evpEmpty.setVisibility(View.GONE);
     }
 
     @Subscribe(threadMode = ThreadMode.MAIN)

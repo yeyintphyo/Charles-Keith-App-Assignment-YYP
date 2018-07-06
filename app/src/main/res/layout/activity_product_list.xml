@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".activities.ProductListActivity">
+    tools:context=".activities.ProductListActivity"
+    >
 
     <android.support.design.widget.AppBarLayout
         android:layout_width="match_parent"
@@ -13,19 +14,60 @@
         app:elevation="0dp"
         >
 
-        <include
+        <android.support.v7.widget.Toolbar
             android:id="@+id/toolbar"
-            layout="@layout/toolbar"
             android:layout_width="match_parent"
-            android:layout_height="?attr/actionBarSize"
-            app:elevation="0dp"
-            />
+            android:layout_height="wrap_content"
+            app:popupTheme="@style/AppTheme.PopupOverlay">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/toolbar_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/toolbar_title"
+                    android:textColor="@android:color/black"
+                    android:textStyle="bold"
+                    android:letterSpacing="0.3"
+                    android:layout_centerHorizontal="true"
+                    />
+
+                <ImageView
+                    android:id="@+id/btn_single_column"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/toolbar_title"
+                    android:layout_marginTop="@dimen/margin_medium_2"
+                    android:clickable="true"
+                    android:padding="@dimen/margin_medium"
+                    android:src="@drawable/ic_crop_square_black_24dp" />
+
+                <ImageView
+                    android:id="@+id/btn_double_column"
+                    android:layout_width="@dimen/iv_double_column_width"
+                    android:layout_height="@dimen/iv_double_column_height"
+                    android:layout_alignTop="@id/btn_single_column"
+                    android:layout_below="@id/toolbar_title"
+                    android:layout_marginLeft="@dimen/margin_medium_2"
+                    android:layout_marginTop="@dimen/margin_medium"
+                    android:layout_toRightOf="@id/btn_single_column"
+                    android:clickable="true"
+                    android:src="@drawable/ic_two_columns_bold" />
+
+            </RelativeLayout>
+
+
+        </android.support.v7.widget.Toolbar>
 
     </android.support.design.widget.AppBarLayout>
 
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:background="@color/primary"
         app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
         <android.support.v4.widget.SwipeRefreshLayout

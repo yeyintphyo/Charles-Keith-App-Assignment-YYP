@@ -33,9 +33,12 @@
     <dimen name="text_big_2x">60sp</dimen>
     <dimen name="text_big_3x">80sp</dimen>
 
-    <dimen name="product_img_height">350dp</dimen>
-    <dimen name="product_img_weight">350dp</dimen>
+    <dimen name="product_img_height">200dp</dimen>
+    <dimen name="product_img_weight">200dp</dimen>
     <dimen name="emptyImageWidth">180dp</dimen>
     <dimen name="emptyImageHeight">180dp</dimen>
+
+    <dimen name="iv_double_column_width">24dp</dimen>
+    <dimen name="iv_double_column_height">24dp</dimen>
 
 </resources>

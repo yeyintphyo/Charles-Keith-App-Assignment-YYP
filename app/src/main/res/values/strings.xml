@@ -4,6 +4,8 @@
     <string name="title_activity_product_list">ProductListActivity</string>
     <string name="title_activity_product_details">DetailsActivity</string>
 
+    <string name="toolbar_title"><![CDATA[CHARLES  &  KEITH]]></string>
+
     <string name="products_total_count"><xliff:g id="tv_items_count">%1$s</xliff:g> items</string>
 
     <string name="empty_msg">\"no data available!\"</string>

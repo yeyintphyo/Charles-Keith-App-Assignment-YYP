@@ -16,6 +16,7 @@ import com.padcmyanmar.charles_keith_app_assignment_yyp.data.vos.NewProductVO;
 import com.padcmyanmar.charles_keith_app_assignment_yyp.utils.CommonInstances;
 
 public class ProductDetailsActivity extends BaseActivity {
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

@@ -40,12 +40,12 @@ public class ProductsModel {
     }
 
     public void loadNewProducts(){
-        mDataAgent.loadNewProductList(2, DUMMY_ACCESS_TOKEN, false);
+        mDataAgent.loadNewProductList(mPage, DUMMY_ACCESS_TOKEN, false);
     }
 
     public void forceRefreshNewProducts(){
         mPage = 1;
-        mDataAgent.loadNewProductList(1, DUMMY_ACCESS_TOKEN, false);
+        mDataAgent.loadNewProductList(mPage, DUMMY_ACCESS_TOKEN, false);
     }
 
     public NewProductVO getNewProductById (String productId) {
@@ -55,6 +55,7 @@ public class ProductsModel {
     @Subscribe(threadMode = ThreadMode.BACKGROUND)
     public void onSuccessGetNewProducts (SuccessGetNewProductsEvent event) {
         setDataIntoRepository(event.getProductList());
+        mPage++;
     }
 
     @Subscribe(threadMode = ThreadMode.BACKGROUND)
